@@ -2,9 +2,9 @@
 
 - If you moved the project to another path, execute change_exec_paths.sh
 
-### How to use the kinect
+### How to use the Kinect/Xtion
 
-- Rename all the libs to _xtion
-- Remove _kinect from all the libs
-- Comment in the code the line #define XTION
+- If you want to swap, execute swap_kinect_xtion.sh
+
+Note : If you see Xtion, it means that you are in a Kinect configuration.
 
