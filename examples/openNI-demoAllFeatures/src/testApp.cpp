@@ -196,6 +196,7 @@ void testApp::draw(){
 	string statusHardware;
 
 #ifdef TARGET_OSX // only working on Mac at the moment
+#ifndef XTION
 	ofPoint statusAccelerometers = hardware.getAccelerometers();
 	stringstream	statusHardwareStream;
 
