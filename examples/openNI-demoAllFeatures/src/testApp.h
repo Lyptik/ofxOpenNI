@@ -2,6 +2,7 @@
 #define _TEST_APP
 
 //#define USE_IR // Uncomment this to use infra red instead of RGB cam...
+#define XTION // Uncomment this to use Xtion
 
 #include "ofxOpenNI.h"
 #include "ofMain.h"
@@ -43,7 +44,10 @@ public:
 	ofxOpenNIRecorder	oniRecorder;
 
 #if defined (TARGET_OSX) //|| defined(TARGET_LINUX) // only working on Mac/Linux at the moment (but on Linux you need to run as sudo...)
+// Not compatible with Xtion (Asus) camera
+#ifndef XTION
 	ofxHardwareDriver	hardware;
+#endif
 #endif
 
 	void				drawMasks();

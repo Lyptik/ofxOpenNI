@@ -26,8 +26,13 @@ void testApp::setup() {
 void testApp::setupRecording(string _filename) {
 
 #if defined (TARGET_OSX) //|| defined(TARGET_LINUX) // only working on Mac/Linux at the moment (but on Linux you need to run as sudo...)
+
+    // This does not work with a Xtion, only a kinect
+#ifndef XTION
 	hardware.setup();				// libusb direct control of motor, LED and accelerometers
 	hardware.setLedOption(LED_OFF); // turn off the led just for yacks (or for live installation/performances ;-)
+#endif
+
 #endif
 
 	recordContext.setup();	// all nodes created by code -> NOT using the xml config file at all
@@ -79,7 +84,9 @@ void testApp::setupPlayback(string _filename) {
 void testApp::update(){
 
 #ifdef TARGET_OSX // only working on Mac at the moment
+#ifndef XTION
 	hardware.update();
+#endif
 #endif
 
 	if (isLive) {
@@ -201,6 +208,7 @@ void testApp::draw(){
 
 	statusHardware = statusHardwareStream.str();
 #endif
+#endif
 
 	stringstream msg;
 
@@ -277,12 +285,14 @@ void testApp::keyPressed(int key){
 
 	switch (key) {
 #ifdef TARGET_OSX // only working on Mac at the moment
+#ifndef XTION
 		case 357: // up key
 			hardware.setTiltAngle(hardware.tilt_angle++);
 			break;
 		case 359: // down key
 			hardware.setTiltAngle(hardware.tilt_angle--);
 			break;
+#endif
 #endif
 		case 's':
 		case 'S':
