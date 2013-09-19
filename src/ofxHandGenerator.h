@@ -46,6 +46,8 @@ public:
 	bool				setup(ofxOpenNIContext* pContext, int number_of_hands = 1);
 	
 	void				dropHands();
+    void                dropHand(int thIndex);
+    
 	void				toggleTrackHands();
 	void				startTrackHands();
 	void				stopTrackHands();

@@ -310,6 +310,16 @@ void ofxHandGenerator::dropHands() {
 	hands_generator.StopTrackingAll();
 }
 
+// Drop one hands
+//--------------------------------------------------------------
+void ofxHandGenerator::dropHand(int thIndex) {
+
+	ofxTrackedHand *hand = tracked_hands[thIndex]; // here thIndex refers to index not the actually HandGenerators nID which seems to count forever....
+	//if (hand->isBeingTracked)
+        hands_generator.StopTracking(hand->nID);
+    
+}
+
 // Stop/Start hand tracking
 //--------------------------------------------------------------
 void ofxHandGenerator::toggleTrackHands() {
