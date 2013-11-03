@@ -16,3 +16,6 @@ build/
 example/*.layout
 
 *.xcuserdatad
+*.xccheckout
+
+*.app
